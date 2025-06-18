@@ -1,4 +1,3 @@
-// src/admin/AdminAddSubject.jsx
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../data/supabaseClient";

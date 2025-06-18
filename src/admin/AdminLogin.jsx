@@ -1,4 +1,3 @@
-// src/admin/AdminLogin.jsx
 import React, { useState } from "react";
 import { supabase } from "../data/supabaseClient";
 import { useNavigate } from "react-router-dom";

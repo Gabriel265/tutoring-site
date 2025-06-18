@@ -1,4 +1,3 @@
-// src/admin/AdminLayout.jsx
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../data/supabaseClient";
@@ -30,7 +29,7 @@ const AdminLayout = ({ children }) => {
       {/* Sidebar */}
       <aside className="w-64 bg-slate-900 border-r border-slate-800 p-6 flex flex-col">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-white mb-2">gratafy</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">Kaycee Tutoring</h1>
           <p className="text-slate-400 text-sm">Admin Panel</p>
         </div>
         
