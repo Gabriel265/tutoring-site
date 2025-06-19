@@ -111,6 +111,145 @@
   border-radius: 15px;
 }
 
+/* Add these to your HeroSection.css */
+
+.cube {
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(48, 82, 92, 0.7), rgba(10, 26, 36, 0.9));
+  box-shadow: 0 0 30px rgba(172, 204, 211, 0.2);
+  border: 1px solid rgba(84, 132, 164, 0.3);
+  overflow: hidden;
+}
+
+.cube-front {
+  transform: rotateY(0deg) translateZ(0px);
+}
+
+.cube-right {
+  transform: rotateY(120deg) translateZ(0px);
+}
+
+.cube-left {
+  transform: rotateY(240deg) translateZ(0px);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-category {
+  background: rgba(48, 82, 92, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(84, 132, 164, 0.5);
+}
+
+/* Add to HeroSection.css */
+
+.services-display {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.levels-track {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.level-card {
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+  border: 1px solid rgba(84, 132, 164, 0.5);
+}
+
+.level-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.subjects-cloud {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.subject-bubble {
+  padding: 12px 18px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 500;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInGrow 0.5s forwards;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  backdrop-filter: blur(5px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInGrow {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .levels-track {
+    gap: 10px;
+  }
+  
+  .level-card {
+    min-width: 80px;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .subject-bubble {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
