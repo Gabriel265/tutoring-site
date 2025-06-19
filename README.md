@@ -5,7 +5,9 @@ A modern, responsive tutoring web application built with React, Vite, and Tailwi
 
 ## 🌐 Live Preview
 
-[🔗 Deployed Site](https://yourdomain.com)
+[🔗 Deployed Site](https://kaycee-tutring.vercel.app)
+
+
 
 
 
@@ -71,7 +73,58 @@ You can get your Exchange Rate API key from https://www.exchangerate-api.com
 
 npm run dev
 
-App will run at http://localhost:5173.
+App will run at http://localhost:5173. - add /admin (to access administrator side)
+
+-Admin side will work only after supabase connectiona and user is added in the admin table.
+
+
+Table schemars:
+create table public.admin_users (
+  id uuid not null default gen_random_uuid (),
+  user_id uuid not null,
+  role text null default 'admin'::text,
+  created_at timestamp with time zone null default now(),
+  constraint admin_users_pkey primary key (id),
+  constraint admin_users_user_id_fkey foreign KEY (user_id) references auth.users (id) on delete CASCADE
+) TABLESPACE pg_default;
+
+
+create table public.subjects (
+  id uuid not null default gen_random_uuid (),
+  name text not null,
+  curriculum_id uuid null,
+  description text null,
+  created_at timestamp with time zone null default now(),
+  constraint subjects_pkey primary key (id),
+  constraint subjects_curriculum_id_fkey foreign KEY (curriculum_id) references curriculums (id) on delete CASCADE
+) TABLESPACE pg_default;
+
+create table public.curriculums (
+  id uuid not null default gen_random_uuid (),
+  name text not null,
+  description text null,
+  created_at timestamp with time zone null default now(),
+  updated_at timestamp with time zone not null default now(),
+  price numeric(10, 2) null,
+  archived boolean null default false,
+  constraint curriculums_pkey primary key (id),
+  constraint curriculums_name_key unique (name)
+) TABLESPACE pg_default;
+
+
+create table public.tutors (
+  id uuid not null default gen_random_uuid (),
+  name text not null,
+  profile_picture text null,
+  qualification text null,
+  bio text null,
+  is_featured boolean null default false,
+  created_at timestamp with time zone null default now(),
+  archived boolean null default false,
+  updated_at timestamp without time zone not null default now(),
+  constraint tutors_pkey primary key (id)
+) TABLESPACE pg_default;
+
 
 🗂 Folder Structure
 
