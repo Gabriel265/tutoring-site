@@ -178,55 +178,88 @@ const AdminTutors = () => {
                   animation: "fadeInUp 0.5s ease-out forwards"
                 }}
               >
-                {/* Action Buttons - Top Left */}
-                <div className="absolute top-3 left-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  {/* Edit Button */}
-                  <div className="relative">
-                    <Link
-                      to={`/admin/edit-tutor/${tutor.id}`}
-                      className="w-8 h-8 bg-slate-800 hover:bg-blue-600 text-slate-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-200 tooltip-trigger"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                      </svg>
-                    </Link>
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                      Edit Tutor
-                    </div>
-                  </div>
+               {/* Action Buttons - Top Right */}
+<div className="absolute top-3 right-3 hidden sm:flex gap-1">
+  {/* Edit Button */}
+  <div className="relative">
+    <Link
+      to={`/admin/edit-tutor/${tutor.id}`}
+      className="peer w-8 h-8 bg-slate-800 hover:bg-blue-600 text-slate-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-200"
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+      </svg>
+    </Link>
+    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+      Edit Tutor
+    </div>
+  </div>
 
-                  {/* Archive Button */}
-                  {!tutor.archived && (
-                    <div className="relative">
-                      <button
-                        onClick={() => archiveTutor(tutor.id)}
-                        className="w-8 h-8 bg-slate-800 hover:bg-yellow-600 text-slate-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-200"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8l4 4 4-4m0 10l-4-4-4 4" />
-                        </svg>
-                      </button>
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                        Archive Tutor
-                      </div>
-                    </div>
-                  )}
+  {/* Archive Button */}
+  {!tutor.archived && (
+    <div className="relative">
+      <button
+        onClick={() => archiveTutor(tutor.id)}
+        className="peer w-8 h-8 bg-slate-800 hover:bg-yellow-600 text-slate-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-200"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8l4 4 4-4m0 10l-4-4-4 4" />
+        </svg>
+      </button>
+      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+        Archive Tutor
+      </div>
+    </div>
+  )}
 
-                  {/* Delete Button */}
-                  <div className="relative">
-                    <button
-                      onClick={() => deleteTutor(tutor.id, tutor.profile_picture)}
-                      className="w-8 h-8 bg-slate-800 hover:bg-red-600 text-slate-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-200"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                      </svg>
-                    </button>
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                      Delete Tutor
-                    </div>
-                  </div>
-                </div>
+  {/* Delete Button */}
+  <div className="relative">
+    <button
+      onClick={() => deleteTutor(tutor.id, tutor.profile_picture)}
+      className="peer w-8 h-8 bg-slate-800 hover:bg-red-600 text-slate-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-200"
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+      </svg>
+    </button>
+    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+      Delete Tutor
+    </div>
+  </div>
+</div>
+
+{/* Mobile Action Menu */}
+<div className="sm:hidden absolute top-3 right-3">
+  <details className="relative">
+    <summary className="w-8 h-8 bg-slate-800 text-white rounded-lg flex items-center justify-center cursor-pointer list-none">
+      ⋮
+    </summary>
+    <div className="absolute right-0 mt-2 w-36 bg-slate-800 border border-slate-700 rounded-lg shadow-lg z-10">
+      <Link
+        to={`/admin/edit-tutor/${tutor.id}`}
+        className="block px-4 py-2 text-sm text-white hover:bg-blue-600"
+      >
+        Edit
+      </Link>
+      {!tutor.archived && (
+        <button
+          onClick={() => archiveTutor(tutor.id)}
+          className="w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-600"
+        >
+          Archive
+        </button>
+      )}
+      <button
+        onClick={() => deleteTutor(tutor.id, tutor.profile_picture)}
+        className="w-full text-left px-4 py-2 text-sm text-white hover:bg-red-600"
+      >
+        Delete
+      </button>
+    </div>
+  </details>
+</div>
+
+
 
                 <div className="flex items-start gap-4">
                   {/* Profile Picture */}

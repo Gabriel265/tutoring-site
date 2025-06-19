@@ -8,6 +8,7 @@ import Tutors from "./components/Tutors";
 import Navbar from "./components/Navbar";
 import CurriculumSection from "./components/CurriculumSection";
 import AssignmentForm from "./components/AssignmentForm";
+import Footer from "./components/Footer";
 
 // Admin Pages
 import AdminDashboard from "./admin/AdminDashboard";
@@ -32,6 +33,7 @@ function MainApp() {
       <CurriculumSection />
       <AssignmentForm />
       <Tutors />
+      <Footer />
     </div>
   );
 }

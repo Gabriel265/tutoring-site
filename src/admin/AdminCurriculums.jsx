@@ -168,72 +168,74 @@ const AdminCurriculums = () => {
                   animation: "fadeInUp 0.5s ease-out forwards"
                 }}
               >
-                {/* Action Buttons - Top Right */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  {/* Edit Button */}
-                  <div className="relative">
-                    <Link
-                      to={`/admin/edit-curriculum/${curr.id}`}
-                      state={{ curriculum: curr }} // Pass data to edit page
-                      className="w-9 h-9 bg-slate-800/80 hover:bg-blue-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-blue-500/25 backdrop-blur-sm"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                      </svg>
-                    </Link>
-                    <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
-                      Edit Curriculum
-                    </div>
-                  </div>
+               {/* Action Buttons - Top Right */}
+<div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
 
-                  {/* Subjects Button */}
-                  <div className="relative">
-                    <Link
-                      to={`/admin/subjects/${curr.id}`}
-                      state={{ curriculum: curr }} // Pass data for context
-                      className="w-9 h-9 bg-slate-800/80 hover:bg-green-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-green-500/25 backdrop-blur-sm"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                    </Link>
-                    <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
-                      Manage Subjects
-                    </div>
-                  </div>
+  {/* Edit Button */}
+  <div className="relative">
+    <Link
+      to={`/admin/edit-curriculum/${curr.id}`}
+      state={{ curriculum: curr }}
+      className="peer w-9 h-9 bg-slate-800/80 hover:bg-blue-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-blue-500/25 backdrop-blur-sm"
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+      </svg>
+    </Link>
+    <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
+      Edit Curriculum
+    </div>
+  </div>
 
-                  {/* Archive Button */}
-                  {!curr.archived && (
-                    <div className="relative">
-                      <button
-                        onClick={() => archiveCurriculum(curr.id)}
-                        className="w-9 h-9 bg-slate-800/80 hover:bg-yellow-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-yellow-500/25 backdrop-blur-sm"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8l4 4 4-4" />
-                        </svg>
-                      </button>
-                      <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
-                        Archive Curriculum
-                      </div>
-                    </div>
-                  )}
+  {/* Subjects Button */}
+  <div className="relative">
+    <Link
+      to={`/admin/subjects/${curr.id}`}
+      state={{ curriculum: curr }}
+      className="peer w-9 h-9 bg-slate-800/80 hover:bg-green-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-green-500/25 backdrop-blur-sm"
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    </Link>
+    <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
+      Manage Subjects
+    </div>
+  </div>
 
-                  {/* Delete Button */}
-                  <div className="relative">
-                    <button
-                      onClick={() => deleteCurriculum(curr.id)}
-                      className="w-9 h-9 bg-slate-800/80 hover:bg-red-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-red-500/25 backdrop-blur-sm"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                      </svg>
-                    </button>
-                    <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
-                      Delete Curriculum
-                    </div>
-                  </div>
-                </div>
+  {/* Archive Button */}
+  {!curr.archived && (
+    <div className="relative">
+      <button
+        onClick={() => archiveCurriculum(curr.id)}
+        className="peer w-9 h-9 bg-slate-800/80 hover:bg-yellow-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-yellow-500/25 backdrop-blur-sm"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8l4 4 4-4" />
+        </svg>
+      </button>
+      <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
+        Archive Curriculum
+      </div>
+    </div>
+  )}
+
+  {/* Delete Button */}
+  <div className="relative">
+    <button
+      onClick={() => deleteCurriculum(curr.id)}
+      className="peer w-9 h-9 bg-slate-800/80 hover:bg-red-600 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-red-500/25 backdrop-blur-sm"
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+      </svg>
+    </button>
+    <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-200 pointer-events-none backdrop-blur-sm">
+      Delete Curriculum
+    </div>
+  </div>
+</div>
+
 
                 <div className="flex items-start gap-6">
                   {/* Icon */}

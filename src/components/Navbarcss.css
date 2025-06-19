@@ -1,0 +1,67 @@
+.navigation-container {
+  height: 60px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation-container ul {
+  display: flex;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation-container ul li {
+  position: relative;
+  list-style: none;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 80px;
+}
+
+.navigation-container ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s;
+}
+
+.navigation-container ul li.active a {
+  color: #F6C992;
+}
+
+.navigation-container ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 1;
+  font-size: 1.4em;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  width: 6px;
+  height: 6px;
+  background: #F6C992;
+  border-radius: 50%;
+  transition: 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  box-shadow: 0 0 8px rgba(246, 201, 146, 0.8);
+}
+
+.navigation-container ul li.active a .icon {
+  transform: translateY(-4px);
+}

@@ -8,7 +8,7 @@ const slides = [
     image: "/images/stressed.jpg",
   },
   {
-    title: "We're here to help.",
+    title: "We’re here to help.",
     subtitle: "Specialists in tutoring and academic writing.",
     image: "/images/happy.jpg",
   },
@@ -26,7 +26,6 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section id="hero" className="relative bg-gradient-to-b from-[#0A1A24] via-[#30525C] to-[#0A1A24] pb-[1px]">
     <div className="hero-container">
       <div className="cube" style={{ transform: `rotateY(-${current * 180}deg)` }}>
         <div className="cube-face cube-front">
@@ -37,7 +36,6 @@ export default function HeroSection() {
         </div>
       </div>
     </div>
-    </section>
   );
 }
 
